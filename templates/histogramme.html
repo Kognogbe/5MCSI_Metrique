@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histogramme des températures pour Paris</title>
+    <!-- Chargement de la bibliothèque Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Date', 'Température (°C)'],
+                {% for data in weather_data %}
+                ['{{ data.date }}', {{ data.temperature }}],
+                {% endfor %}
+            ]);
+
+            var options = {
+                title: 'Histogramme des températures pour Paris',
+                legend: { position: 'none' },
+                width: 800,
+                height: 400,
+                hAxis: {
+                    title: 'Température (°C)',
+                    minValue: 0
+                },
+                vAxis: {
+    
 
