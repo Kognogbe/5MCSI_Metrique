@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import requests
 
 app = Flask(__name__)
 
@@ -9,6 +10,7 @@ def contact():
 @app.route('/')
 def hello_world():
     return render_template('hello.html')
+
 @app.route('/histogramme/')
 def get_weather_data():
     api_url = 'https://samples.openweathermap.org/data/2.5/forecast?q=Paris,fr&appid=59738d3765db6902c9ab2d58c9c8b580' # Remplacez "xxx" par votre clé d'API OpenWeatherMap
