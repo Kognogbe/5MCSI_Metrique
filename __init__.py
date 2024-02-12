@@ -12,7 +12,7 @@ def hello_world():
     return render_template('hello.html')
 @app.route('/histogramme/')
 def get_weather_data():
-    api_url = 'https://samples.openweathermap.org/data/2.5/forecast?q=Paris,fr&appid=59738d3765db6902c9ab2d58c9c8b580' # Remplacez "xxx" par votre clé d'API OpenWeatherMap
+    api_url = 'https://samples.openweathermap.org/data/2.5/forecast?q=Paris,fr&appid=bd5e378503939ddaee76f12ad7a97608' # Remplacez "xxx" par votre clé d'API OpenWeatherMap
     response = requests.get(api_url)
     
     if response.status_code == 200:
