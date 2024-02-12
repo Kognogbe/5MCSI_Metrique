@@ -60,7 +60,7 @@ def contact():
             </style>
         </head>
         <body>
-            <h2>Contacte</h2>
+            <h2>Ma page de contact</h2>
             <form action="/contact/" method="post">
                 <label for="fname">Prénom :</label>
                 <input type="text" id="fname" name="firstname" placeholder="Votre prénom.." required>
