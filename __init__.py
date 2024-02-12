@@ -1,18 +1,59 @@
-from flask import Flask, render_template_string, render_template, jsonify
-from flask import render_template
-from flask import json
-from datetime import datetime
-from urllib.request import urlopen
-import sqlite3
-                                                                                                                                       
-app = Flask(__name__)                                                                                                                  
-@app.route("/contact/")
-def MaPremiereAPI():
-    return "<h2>Ma page de contact</h2>"                                                                                                                                     
-@app.route('/')
-def hello_world():
-    return render_template('hello.html') #Comm2
-  
-if __name__ == "__main__":
-  app.run(debug=True)
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 150px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Contactez-nous</h2>
+    <form action="/submit_contact_form" method="post">
+        <label for="fname">Prénom :</label>
+        <input type="text" id="fname" name="firstname" placeholder="Votre prénom.." required>
 
+        <label for="lname">Nom :</label>
+        <input type="text" id="lname" name="lastname" placeholder="Votre nom.." required>
+
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" placeholder="Votre message.." required></textarea>
+
+        <input type="submit" value="Envoyer">
+    </form>
+</body>
+</html>
