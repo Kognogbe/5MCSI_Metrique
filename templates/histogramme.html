@@ -28,5 +28,19 @@
                     minValue: 0
                 },
                 vAxis: {
-    
+                    title: 'Date'
+                }
+            };
+
+            var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+    <h2>Histogramme des températures pour Paris</h2>
+    <div id="chart_div"></div>
+</body>
+</html>
+
 
